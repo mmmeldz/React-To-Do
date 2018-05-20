@@ -13,6 +13,14 @@ import React, { Component } from 'react';
       ],
       newTodoDescription: ''
       };
+      this.deleteTodo = this.deleteTodo.bind(this);
+      }
+
+      deleteTodo(description) {
+      const filteredTodos = this.state.todos.filter((todo, index) =>  todo.description !== description);
+      this.setState({
+      todos: filteredTodos
+      });
       }
 
       handleChange(e) {
@@ -38,7 +46,7 @@ import React, { Component } from 'react';
        <div className="App">
         <ul>
         { this.state.todos.map( (todo, index) =>
-          <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } />
+          <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } deleteToDo={this.deleteTodo} />
           )}
         </ul>
         <form onSubmit={ (e) => this.handleSubmit(e) }>
