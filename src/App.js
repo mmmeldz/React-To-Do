@@ -11,27 +11,27 @@ import React, { Component } from 'react';
         { description: 'Take Kittens for a walk', isCompleted: false },
         { description: 'Give kittens a bubble bath', isCompleted: false }
       ],
-        newTodoDescription: ''
-    };
-   }
+      newTodoDescription: ''
+      };
+      }
 
-   handleChange(e) {
-  this.setState({ newTodoDescription: e.target.value })
-}
+      handleChange(e) {
+      this.setState({ newTodoDescription: e.target.value })
+      }
 
-   handleSubmit(e) {
-     e.preventDefault();
-     if (!this.state.newTodoDescription) { return }
-     const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
-     this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
-   }
+      handleSubmit(e) {
+      e.preventDefault();
+      if (!this.state.newTodoDescription) { return }
+      const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
+      this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
+      }
 
-   toggleComplete(index) {
-     const todos = this.state.todos.slice();
-     const todo = todos[index];
-     todo.isCompleted = todo.isCompleted ? false : true;
-     this.setState({ todos: todos });
-   }
+      toggleComplete(index) {
+      const todos = this.state.todos.slice();
+      const todo = todos[index];
+      todo.isCompleted = todo.isCompleted ? false : true;
+      this.setState({ todos: todos });
+      }
 
    render() {
      return (
